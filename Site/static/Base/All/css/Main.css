@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Sahel;
+  src: url('/static/Base/All/fonts/Sahel.eot');
+  src: url('/static/Base/All/fonts/Sahel.eot?#iefix') format('embedded-opentype'),
+       url('/static/Base/All/fonts/Sahel.woff2') format('woff2'),
+       url('/static/Base/All/fonts/Sahel.woff') format('woff'),
+       url('/static/Base/All/fonts/Sahel.ttf') format('truetype');
+}
+

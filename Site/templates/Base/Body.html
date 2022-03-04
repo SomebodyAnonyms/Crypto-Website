@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "" %}Base/All/css/Main.css" rel="stylesheet">
+</head>
+
+
+<header style="font-family: Sahel;">
+    {% include "Base/Header.html" %}
+</header>
+
+<body style="font-family: Sahel;">
+    {% block content %}{% endblock %}
+</body>
+
+<footer style="font-family: Sahel;">
+    {% include "Base/Footer.html" %}
+</footer>
+
+</html>

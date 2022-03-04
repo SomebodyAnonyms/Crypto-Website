@@ -1,0 +1,78 @@
+{% load static %}
+
+<link href="{% static "" %}Base/Footer/css/Footer_Bootstrap.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<section class="footers bg-light pt-5 pb-3">
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
+                <div class="footers-logo">
+                    {% for i in Footer_Logo %}
+                    <img src="{{ i.image.url }}" alt="Logo" style="width:120px; height: 120px;">
+                    {% endfor %}
+                </div>
+                <div class="footers-info mt-3">
+                    {% for i in Footer_Logo_Text %}
+                    <p>{{ i.text }}</p>
+                    {% endfor %}
+                </div>
+                <div class="social-icons">
+                    {% for i in Footer_Social_Icons %}
+                    {% if i.name == "Facebook" %}
+                    <a href="{{ i.link }}" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-2x social"></i></a>
+                    {% elif i.name == "Twitter" %}
+                    <a href="{{ i.link }}" target="_blank"><i id="social-tw" class="fa fa-twitter-square fa-2x social"></i></a>
+                    {% elif i.name == "Telegram" %}
+                    <a href="{{ i.link }}" target="_blank"><i id="social-gp" class="fa fa-envelope-square fa-2x social"></i></a>
+                    {% elif i.name == "Gmail" %}
+                    <a href="{{ i.link }}" target="_blank"><i id="social-em" class="fa fa-envelope-square fa-2x social"></i></a>
+                    {% elif i.name == "Instagram" %}
+                    <a href="{{ i.link }}" target="_blank"><i id="social-in" class="fa fa-instagram fa-2x social"></i></a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% for i in Footer_Categories %}
+            {% if forloop.counter == 5 or forloop.counter == 9 or forloop.counter == 13 %}
+            <div class="col-xs-12 col-sm-6 col-md-4"></div>
+            {% endif %}
+            <div class="col-xs-12 col-sm-6 col-md-2">
+                <h5 href="#">{{ i.title }}</h5>
+                <ul class="list-unstyled">
+                    {% for b in i.children.enable_childs %}
+                    <li><a href="{{ i.slug }}/{{ b.slug }}">{{ b.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="disclaimer bg-light border">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12 py-2">
+                <small>
+                    {% for i in Footer_Description %}
+                    {{ i.text }}
+                    {% endfor %}
+                </small>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="copyright border">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 pt-3">
+                {% for i in Footer_Copyright %}
+                <p class="text-muted">{{ i.text }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
